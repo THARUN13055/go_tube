@@ -7,6 +7,28 @@ import (
 	"github.com/kkdai/youtube/v2"
 )
 
+// func main (){
+// 	// Input Getting
+// 	// 1: Playlist
+// 	// 2: Video
+// 	// 3: audio only
+// 	if len(os.Args) < 2 {
+// 		return
+
+// 	}
+// 	command_one := os.Args[1]
+// 	if len(os.Args) > 1 {
+// 		switch command_one {
+// 			case "playlist":
+// 				fmt.Println("playlist")
+// 			case "video":
+// 				fmt.Println("video only")
+// 			case "audIo":
+// 				fmt.Println("audio only")
+// 		}
+// 	}
+// }
+
 func main() {
 	// Define the playlist ID
 	playlistID := "PLdsu0umqbb8PQC4AhdbC97DtyZ9eI1qKG"
@@ -23,8 +45,8 @@ func main() {
 	fmt.Printf("Playlist Title: %s\n", playlist.Title)
 	fmt.Printf("Number of Videos in Playlist: %d\n", len(playlist.Videos))
 
-	for index,video := range playlist.Videos {
-		fmt.Printf("TITLE:%v || INDEX:%d || URL:%v \n",video.Title,index,video.ID)
+	for index, video := range playlist.Videos {
+		fmt.Printf("TITLE:%v || INDEX:%d || URL:%v \n", video.Title, index, video.ID)
 
 		videoDetail, err := client.GetVideo(video.ID)
 		if err != nil {
@@ -34,13 +56,13 @@ func main() {
 
 		format := videoDetail.Formats.WithAudioChannels()
 		if len(format) == 0 {
-			fmt.Printf("No audio formate founded in this video: %v",video.Title)
-		}else {
+			fmt.Printf("No audio formate founded in this video: %v", video.Title)
+		} else {
 			// fmt.Printf("audio formate founded in this video: %v\n",video.Title)
 			if len(videoDetail.Formats) > 0 {
-				fmt.Printf("The Video quality are: %v\n",videoDetail.Formats[0].QualityLabel)
+				fmt.Printf("The Video quality are: %v\n", videoDetail.Formats[0].QualityLabel)
 			}
-		}	
+		}
 	}
-	
+
 }
