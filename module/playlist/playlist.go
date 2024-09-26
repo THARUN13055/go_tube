@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-func playlist() {
+func Playlist() {
 	if len(os.Args) > 2 {
 		return 
 	}
@@ -18,6 +18,8 @@ func playlist() {
 			fmt.Println("all videos")
 		case "--all-audio":
 			fmt.Println("all audio")
+		case "--list":
+			fmt.Println("list")
 		default:
 			return
 		}

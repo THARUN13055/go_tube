@@ -14,7 +14,7 @@ GoTube is a command-line tool built with Golang that allows you to download YouT
 
     ```bash
     git clone https://github.com/yourusername/gotube.git
-    cd gotube
+    cd go_tube
     ```
 
 2. **Install Dependencies:**
@@ -47,6 +47,7 @@ GoTube is a command-line tool built with Golang that allows you to download YouT
 To download all videos in a playlist, run the following command:
 
 ```bash
-./go_tube playlist <playlist-url>
+./go_tube playlist <playlist-url> --all-videos --download --quality 1080p
+    0       1          2               3            4         5       6
 
 ```
